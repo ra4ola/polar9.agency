@@ -5,6 +5,7 @@ import Link from "./Link";
 import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import ActionButton from "@/shared/ActionButton";
+import Footer from "../footer";
 
 type Props = {
     isTopOfPage : boolean;
@@ -16,8 +17,8 @@ const NavBar = ({isTopOfPage, selectedPage, setSelectedPage}: Props) => {
 
     const flexBetween = "flex items-center justify-between";
     const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
-    const isAboveMediumScreens = useMediaQuery("(min-width: 768px)");
-    const navbarBackground = isTopOfPage ? "bg-black text-white" : "text-white";
+    const isAboveMediumScreens = useMediaQuery("(min-width: 800px)");
+    const navbarBackground = isTopOfPage ? "bg-black" : "bg-red-500";
 
   return <nav className="bg-black">
     <div
@@ -27,7 +28,7 @@ const NavBar = ({isTopOfPage, selectedPage, setSelectedPage}: Props) => {
             {/*Left Side */ }
             <div className={`${flexBetween} h-fit gap-16 rounded-full`}>
                 {/* Logo*/ }
-                <img src={Logo} alt="logo" width={isAboveMediumScreens ? "200" : "75"} />
+                <img src={Logo} alt="logo" width={isAboveMediumScreens ? "120" : "75"} />
             </div>
 
             {/* Right Side */ }
@@ -64,7 +65,7 @@ const NavBar = ({isTopOfPage, selectedPage, setSelectedPage}: Props) => {
     {!isAboveMediumScreens && isMenuToggled && (
         <div className="fixed top-0 w-full h-full bg-black opacity p-2 z-40">
             {/*Close Icon  */}
-            <div className="flex justify-end p-12">
+            <div className="flex justify-end p-7">
                 <button 
                 className="rounded-full bg-white p-1"
                 onClick={() => setIsMenuToggled(!isMenuToggled)}
@@ -73,7 +74,7 @@ const NavBar = ({isTopOfPage, selectedPage, setSelectedPage}: Props) => {
                 </button>
             </div>
             {/* Menu Items */}
-            <div className={`${flexBetween} flex flex-col ali gap-10 text-2xl text-white font-montserrat`}>
+            <div className={`${flexBetween} w-full flex flex-col gap-10 text-sm text-white font-montserrat`}>
                     <Link
                     page = "Sobre Nós" 
                     selectedPage = {selectedPage}
@@ -84,12 +85,12 @@ const NavBar = ({isTopOfPage, selectedPage, setSelectedPage}: Props) => {
                     setSelectedPage = {setSelectedPage} />    
                 {/*Contact Us  */}
                 <div className="">
-                    
                 <ActionButton setSelectedPage = {setSelectedPage}>Fale Conosco</ActionButton>            
                 </div>
                 </div>
-
-
+                <div className="fixed bottom-0 w-full">
+                <Footer setSelectedPage={setSelectedPage}></Footer>
+                </div>
         </div>
     )
     }
