@@ -1,13 +1,11 @@
-import React from 'react';
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { SelectedPage } from "@/shared/types";
-import { motion } from "framer-motion";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
 };
 
-const Footer = ({ setSelectedPage }: Props) => {
+const Footer = ({  }: Props) => {
   const isAboveMediumScreens = useMediaQuery("(min-width:1060px)");
 
   return (

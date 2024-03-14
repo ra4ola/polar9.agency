@@ -1,7 +1,5 @@
 import { SelectedPage } from '@/shared/types';
-import React from 'react'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import { Anchor } from 'react-bootstrap'
 
 type Props = {
     page:string;

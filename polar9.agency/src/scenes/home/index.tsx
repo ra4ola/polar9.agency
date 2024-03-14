@@ -1,9 +1,6 @@
 import useMediaQuery from "@/hooks/useMediaQuery";
 import { SelectedPage } from "@/shared/types";
 import ActionButton from "@/shared/ActionButton";
-import AnchorLink from "react-anchor-link-smooth-scroll";
-import { MotionConfig, motion } from "framer-motion";
-import { DEFAULT_BREAKPOINTS } from "react-bootstrap/esm/ThemeProvider";
 
 type Props = {
   setSelectedPage: (value: SelectedPage) => void;
